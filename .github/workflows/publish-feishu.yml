@@ -1,0 +1,83 @@
+name: Publish Feishu Article
+
+on:
+  workflow_dispatch:
+    inputs:
+      feishu_url:
+        required: true
+        type: string
+      slug:
+        required: true
+        type: string
+      title:
+        required: true
+        type: string
+      description:
+        required: true
+        type: string
+      content_type:
+        required: true
+        type: choice
+        options:
+          - blog
+          - story
+          - now
+      category:
+        required: true
+        type: string
+      tags:
+        required: false
+        type: string
+      draft:
+        required: true
+        type: boolean
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Publish Feishu document
+        run: node scripts/publish-feishu.mjs
+        env:
+          FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
+          FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
+          FEISHU_URL: ${{ inputs.feishu_url }}
+          SLUG: ${{ inputs.slug }}
+          TITLE: ${{ inputs.title }}
+          DESCRIPTION: ${{ inputs.description }}
+          CONTENT_TYPE: ${{ inputs.content_type }}
+          CATEGORY: ${{ inputs.category }}
+          TAGS: ${{ inputs.tags }}
+          DRAFT: ${{ inputs.draft }}
+
+      - name: Commit generated content
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add src/content public/images .cache/last-publish-report.json
+          git commit -m "publish: ${{ inputs.slug }}" || echo "No content changes"
+          git push
+
+      - run: npm run build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - uses: actions/deploy-pages@v4
