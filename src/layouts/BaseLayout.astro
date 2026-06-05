@@ -1,0 +1,47 @@
+---
+import { getNavigation, getSiteConfig, getSocialConfig } from "../lib/config";
+import "../styles/global.css";
+
+const site = getSiteConfig();
+const nav = getNavigation();
+const social = getSocialConfig();
+
+type Props = {
+  title?: string;
+  description?: string;
+};
+
+const pageTitle = Astro.props.title ? `${Astro.props.title} | ${site.title}` : site.title;
+const description = Astro.props.description || site.description;
+---
+
+<!doctype html>
+<html lang={site.language}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="alternate" type="application/rss+xml" title={`${site.title} RSS`} href="/rss.xml" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">{site.title}</a>
+      <nav aria-label="Main navigation">
+        {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>{site.author.bio}</p>
+      <div>
+        {social.links.map((item) => <a href={item.href}>{item.label}</a>)}
+      </div>
+    </footer>
+  </body>
+</html>
