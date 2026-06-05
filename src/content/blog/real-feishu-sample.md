@@ -10,7 +10,7 @@ tags:
   - "家乡"
   - "生活方式"
   - "新茶"
-cover: "/feishu-astro-personal-site/images/blog/real-feishu-sample/tea-A6uVbwS9Eo.jpeg"
+cover: "/images/blog/real-feishu-sample/tea-A6uVbwS9Eo.jpeg"
 source: "feishu"
 feishu_url: "https://andy.feishu.cn/docx/XwA1dnQBUoBlgfxbqrHcBc9Bnxb"
 draft: false
@@ -33,7 +33,7 @@ draft: false
 
 **如果你之前没尝试过买茶，欢迎尝鲜**；如果你是**有一定经验的茶客**，也希望能得到你的惠顾，**我希望能惊艳到你**。
 
-<img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/tea-A6uVbwS9Eo.jpeg" />
+<img src="/images/blog/real-feishu-sample/tea-A6uVbwS9Eo.jpeg" />
 
 可能有同学会想到，公司不也有茶包吗？但你也说这是茶包，一个是粗糠，一个是细粮，不一样！平时一般我是不喝的。还有拼多多、淘宝同学们就没必要看了，我们卖的是今年的新茶！
 
@@ -49,23 +49,23 @@ draft: false
 
 放几张茶园和采茶的照片。
 
-<img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-EowUbeMWqo.png" />
+<img src="/images/blog/real-feishu-sample/image-EowUbeMWqo.png" />
 
 图：茶园风貌1
 
-<img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-YkorbYQm1o.png" />
+<img src="/images/blog/real-feishu-sample/image-YkorbYQm1o.png" />
 
 图：茶园风貌2
 
-<img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-XJxCb42b3o.png" />
+<img src="/images/blog/real-feishu-sample/image-XJxCb42b3o.png" />
 
 图3：小妹和妈妈在辛劳地采茶
 
-<img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/茶园风貌-WotLbLFCeo.jpeg" />
+<img src="/images/blog/real-feishu-sample/茶园风貌-WotLbLFCeo.jpeg" />
 
 图4：初春时节的茶园
 
-<img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-NIiFbgcIuo.png" />
+<img src="/images/blog/real-feishu-sample/image-NIiFbgcIuo.png" />
 
 图4：盛夏采茶（小王本人，多年前的照片）
 
@@ -106,7 +106,7 @@ draft: false
 <li>送朋友，送领导</li>
 <li>送长辈</li>
 </ul></td>
-<td><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/Luban_17138865735052860380d-eaa8-4fd0-b972-eb2e1c4aaf1a-EP0ybLsVJo.jpeg" /><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/Luban_1713886573522ff811a43-9e28-4c1f-890e-bea6f5160cdd-KV7gb1Yhko.jpg" /></td>
+<td><img src="/images/blog/real-feishu-sample/Luban_17138865735052860380d-eaa8-4fd0-b972-eb2e1c4aaf1a-EP0ybLsVJo.jpeg" /><img src="/images/blog/real-feishu-sample/Luban_1713886573522ff811a43-9e28-4c1f-890e-bea6f5160cdd-KV7gb1Yhko.jpg" /></td>
 <td><p>1200</p></td>
 </tr>
 <tr>
@@ -118,7 +118,7 @@ draft: false
 <li>个人饮品</li>
 <li>送长辈</li>
 </ul></td>
-<td><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/Luban_171388661343542ecfc28-9b53-41c3-8db5-d1b92ca71a17-HgdJbMIJ8o.jpeg" /><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/Luban_171388661345754081f1c-41f8-4203-b0cd-a09bd26fbbb7-GEbEbPsV7o.jpeg" /></td>
+<td><img src="/images/blog/real-feishu-sample/Luban_171388661343542ecfc28-9b53-41c3-8db5-d1b92ca71a17-HgdJbMIJ8o.jpeg" /><img src="/images/blog/real-feishu-sample/Luban_171388661345754081f1c-41f8-4203-b0cd-a09bd26fbbb7-GEbEbPsV7o.jpeg" /></td>
 <td><p>600 ~ 700</p></td>
 </tr>
 <tr>
@@ -129,7 +129,7 @@ draft: false
 <li>个人饮品</li>
 <li>送长辈</li>
 </ul></td>
-<td><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/Luban_17138866338000e357893-0fe8-4399-9be3-a7cc81d73aae-GS5Ab0yLQo.jpeg" /><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/Luban_1713886633820cb5466a5-ac6f-4e34-a5fc-088adbd5bd3e-EsgsbLVgDo.jpeg" /></td>
+<td><img src="/images/blog/real-feishu-sample/Luban_17138866338000e357893-0fe8-4399-9be3-a7cc81d73aae-GS5Ab0yLQo.jpeg" /><img src="/images/blog/real-feishu-sample/Luban_1713886633820cb5466a5-ac6f-4e34-a5fc-088adbd5bd3e-EsgsbLVgDo.jpeg" /></td>
 <td><p>400</p></td>
 </tr>
 <tr>
@@ -140,7 +140,7 @@ draft: false
 <li>个人饮品</li>
 <li>家庭饮品</li>
 </ul></td>
-<td><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/干茶3-GsAtbeigVo.jpeg" /></td>
+<td><img src="/images/blog/real-feishu-sample/干茶3-GsAtbeigVo.jpeg" /></td>
 <td><p>280</p></td>
 </tr>
 <tr>
@@ -172,7 +172,7 @@ draft: false
 </thead>
 <tbody>
 <tr>
-<td><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-WvnAbvPAjo.png" /></td>
+<td><img src="/images/blog/real-feishu-sample/image-WvnAbvPAjo.png" /></td>
 <td><p>小罐茶、礼盒装</p></td>
 <td><p>130g, 1200</p></td>
 <td><p>明前头采</p></td>
@@ -180,7 +180,7 @@ draft: false
 <td><p>1200</p></td>
 </tr>
 <tr>
-<td><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-W8CWbeapOo.png" /></td>
+<td><img src="/images/blog/real-feishu-sample/image-W8CWbeapOo.png" /></td>
 <td><p>罐装</p></td>
 <td><p>100g, 916</p></td>
 <td><p>明前头采</p></td>
@@ -188,7 +188,7 @@ draft: false
 <td><p>1200</p></td>
 </tr>
 <tr>
-<td><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-ZLedb0s9Ro.png" /></td>
+<td><img src="/images/blog/real-feishu-sample/image-ZLedb0s9Ro.png" /></td>
 <td><p>盒装</p></td>
 <td><p>10g, 78</p></td>
 <td><p>明前头采</p></td>
@@ -196,7 +196,7 @@ draft: false
 <td><p>1200</p></td>
 </tr>
 <tr>
-<td><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-DgTwbJxzxo.png" /></td>
+<td><img src="/images/blog/real-feishu-sample/image-DgTwbJxzxo.png" /></td>
 <td><p>瓷罐装</p></td>
 <td><p>100g, 568</p></td>
 <td><p>明前龙井</p></td>
@@ -227,9 +227,9 @@ draft: false
 <tbody>
 <tr>
 <td><p>罐装 + 礼袋</p>
-<img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-LFOAbDGHQo.png" /></td>
+<img src="/images/blog/real-feishu-sample/image-LFOAbDGHQo.png" /></td>
 <td><p>牛皮纸包装</p>
-<img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-SmewbbVlho.png" /></td>
+<img src="/images/blog/real-feishu-sample/image-SmewbbVlho.png" /></td>
 </tr>
 </tbody>
 </table>
@@ -240,12 +240,12 @@ draft: false
 
 | 款式 | 单价/套 | 图片 |
 |----|----|----|
-| 绿早春初采（二合一） | 32 | <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-Q68EbbiMvo.png" /><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-RyWtb4qC5o.png" /> |
+| 绿早春初采（二合一） | 32 | <img src="/images/blog/real-feishu-sample/image-Q68EbbiMvo.png" /><img src="/images/blog/real-feishu-sample/image-RyWtb4qC5o.png" /> |
 | 绿早春初采（二合一） | 42 |  |
-| 隐入山林(小2罐青色) | 30 | <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-NP4jb2Xcno.png" /> |
-| 隐入山林(大2罐青色) | 35 | <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-TdTXbHOJko.png" /> |
-| 不染图(单陶绿色) | 68 | <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-PO96b1AAbo.png" /> |
-| 不染图(双陶绿色) | 98 | <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-HhdobDU4To.png" /> |
+| 隐入山林(小2罐青色) | 30 | <img src="/images/blog/real-feishu-sample/image-NP4jb2Xcno.png" /> |
+| 隐入山林(大2罐青色) | 35 | <img src="/images/blog/real-feishu-sample/image-TdTXbHOJko.png" /> |
+| 不染图(单陶绿色) | 68 | <img src="/images/blog/real-feishu-sample/image-PO96b1AAbo.png" /> |
+| 不染图(双陶绿色) | 98 | <img src="/images/blog/real-feishu-sample/image-HhdobDU4To.png" /> |
 
 **茶叶展示**
 
@@ -253,27 +253,27 @@ draft: false
 <tbody>
 <tr>
 <td><p>芽头</p>
-<img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/芽头-GGUxbvByro.jpeg" /></td>
+<img src="/images/blog/real-feishu-sample/芽头-GGUxbvByro.jpeg" /></td>
 <td><p>干茶</p>
-<img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/头采-Mm9Lbn68Vo.jpeg" /></td>
+<img src="/images/blog/real-feishu-sample/头采-Mm9Lbn68Vo.jpeg" /></td>
 </tr>
 <tr>
 <td><p>运输</p>
-<img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-CTdQbnepBo.png" /></td>
+<img src="/images/blog/real-feishu-sample/image-CTdQbnepBo.png" /></td>
 <td><p>茶汤</p>
-<img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/茶汤-XQD1bpEBao.webp" /></td>
+<img src="/images/blog/real-feishu-sample/茶汤-XQD1bpEBao.webp" /></td>
 </tr>
 <tr>
 <td><p>采摘</p>
-<img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-AmwobApSto.png" /></td>
+<img src="/images/blog/real-feishu-sample/image-AmwobApSto.png" /></td>
 <td><p>晾晒</p>
-<img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-AQfqbIB5Ro.png" /></td>
+<img src="/images/blog/real-feishu-sample/image-AQfqbIB5Ro.png" /></td>
 </tr>
 <tr>
 <td><p>在家拍摄的采茶视频</p>
-<video class="feishu-video" controls playsinline preload="metadata" src="/feishu-astro-personal-site/images/blog/real-feishu-sample/media-1.mp4"></video></td>
+<video class="feishu-video" controls playsinline preload="metadata" src="/images/blog/real-feishu-sample/media-1.mp4"></video></td>
 <td><p>老妈采茶视频</p>
-<video class="feishu-video" controls playsinline preload="metadata" src="/feishu-astro-personal-site/images/blog/real-feishu-sample/media-2.mp4"></video></td>
+<video class="feishu-video" controls playsinline preload="metadata" src="/images/blog/real-feishu-sample/media-2.mp4"></video></td>
 </tr>
 </tbody>
 </table>
@@ -309,7 +309,7 @@ draft: false
 
 小王今年开始有自己的自媒体账号了，写了两篇文章试水效果还行（第一篇小眼睛就破万了），**职场交流、转型**或者想了解**更多茶叶知识**，上小红书关注、私信小王。
 
-<img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/小红书二维码-CTsFbt0jBo.jpg" />
+<img src="/images/blog/real-feishu-sample/小红书二维码-CTsFbt0jBo.jpg" />
 
 </div>
 
@@ -319,7 +319,7 @@ draft: false
 
 这是我爱人的微信，我爱人是高级评茶员，比小王专业，同学们有购茶需求，比如不清楚应该怎么选可以找微信找霜霜，备注「**字节同学买茶**」
 
-<img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-RUOmbaLqfo.png" />
+<img src="/images/blog/real-feishu-sample/image-RUOmbaLqfo.png" />
 
 </div>
 
