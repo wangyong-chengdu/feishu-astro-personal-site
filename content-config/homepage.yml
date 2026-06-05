@@ -1,0 +1,12 @@
+hero:
+  title: "王勇"
+  subtitle: "记录技术、创业和生活里的真实判断。"
+sections:
+  - type: "latest_posts"
+    title: "最新文章"
+    limit: 5
+  - type: "featured_posts"
+    title: "推荐阅读"
+    slugs: []
+  - type: "now"
+    title: "现在"
