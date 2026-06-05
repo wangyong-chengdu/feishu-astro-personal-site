@@ -7,7 +7,8 @@ const env = process.env;
 const input = {
   feishuUrl: required("FEISHU_URL", env.FEISHU_URL || "mock://local"),
   slug: required("SLUG", env.SLUG || "my-first-post"),
-  title: required("TITLE", env.TITLE || "我为什么开始写个人网站"),
+  title: env.TITLE || "",
+  titleSource: env.TITLE_SOURCE || "feishu",
   description: required("DESCRIPTION", env.DESCRIPTION || "用飞书写作，用 Astro 和 GitHub Pages 发布。"),
   contentType: required("CONTENT_TYPE", env.CONTENT_TYPE || "blog"),
   category: required("CATEGORY", env.CATEGORY || "technology"),
@@ -82,12 +83,14 @@ function writeArticle(markdown, assetsDir) {
   const articleDir = join("src", "content", collection);
   const imageDir = join("public", "images", collection, input.slug);
   const articlePath = join(articleDir, `${input.slug}.md`);
+  const documentTitle = extractDocumentTitle(markdown);
+  const articleTitle = input.titleSource === "manual" && input.title ? input.title : documentTitle || input.title || input.slug;
 
   mkdirSync(articleDir, { recursive: true });
   rmSync(imageDir, { recursive: true, force: true });
   mkdirSync(imageDir, { recursive: true });
 
-  let body = markdown.replace(/^# .+?\n+/, "").trim();
+  let body = stripDocumentTitle(markdown, documentTitle).replace(/^# .+?\n+/, "").trim();
 
   if (assetsDir && existsSync(assetsDir)) {
     copyAssets(assetsDir, imageDir);
@@ -98,7 +101,7 @@ function writeArticle(markdown, assetsDir) {
 
   const frontmatter = [
     "---",
-    `title: ${JSON.stringify(input.title)}`,
+    `title: ${JSON.stringify(articleTitle)}`,
     `description: ${JSON.stringify(input.description)}`,
     `date: ${JSON.stringify(new Date().toISOString().slice(0, 10))}`,
     `updated: ${JSON.stringify(new Date().toISOString().slice(0, 10))}`,
@@ -134,6 +137,41 @@ function sanitizeMarkdown(markdown) {
     .replace(/<img\s+src="(?!\/|https?:\/\/|\.\.?\/)[^"]+"[^>]*\/?>/g, "")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
+}
+
+function extractDocumentTitle(markdown) {
+  const firstLine = markdown
+    .split("\n")
+    .map((line) => line.trim())
+    .find((line) => line && !line.startsWith("---"));
+
+  if (!firstLine) {
+    return "";
+  }
+
+  return firstLine
+    .replace(/^#\s+/, "")
+    .replace(/<[^>]+>/g, "")
+    .trim();
+}
+
+function stripDocumentTitle(markdown, title) {
+  if (!title) {
+    return markdown;
+  }
+
+  const lines = markdown.split("\n");
+  const firstContentIndex = lines.findIndex((line) => line.trim());
+  if (firstContentIndex === -1) {
+    return markdown;
+  }
+
+  const normalizedFirstLine = lines[firstContentIndex].trim().replace(/^#\s+/, "").trim();
+  if (normalizedFirstLine === title) {
+    lines.splice(firstContentIndex, 1);
+  }
+
+  return lines.join("\n");
 }
 
 function walkFiles(dir) {
