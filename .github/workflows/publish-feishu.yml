@@ -10,7 +10,7 @@ on:
         required: true
         type: string
       title:
-        required: true
+        required: false
         type: string
       description:
         required: true
