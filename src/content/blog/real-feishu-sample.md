@@ -10,6 +10,7 @@ tags:
   - "家乡"
   - "生活方式"
   - "新茶"
+cover: "/feishu-astro-personal-site/images/blog/real-feishu-sample/tea-A6uVbwS9Eo.jpeg"
 source: "feishu"
 feishu_url: "https://andy.feishu.cn/docx/XwA1dnQBUoBlgfxbqrHcBc9Bnxb"
 draft: false
