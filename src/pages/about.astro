@@ -1,0 +1,16 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getSiteConfig } from "../lib/config";
+
+const site = getSiteConfig();
+---
+
+<BaseLayout title="关于我" description={site.author.bio}>
+  <section class="page-heading">
+    <h1>关于我</h1>
+    <p>{site.author.bio}</p>
+  </section>
+  <div class="prose">
+    <p>这里是个人故事页面。第一版可以直接修改此文件，后续由插件 Site 面板管理。</p>
+  </div>
+</BaseLayout>
