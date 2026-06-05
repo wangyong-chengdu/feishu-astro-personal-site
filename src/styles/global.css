@@ -151,9 +151,114 @@ nav {
   max-width: 760px;
 }
 
+.article {
+  max-width: 100%;
+}
+
+.article-header {
+  max-width: 760px;
+}
+
 .prose img {
   border-radius: 8px;
   max-width: 100%;
+}
+
+.prose table {
+  border-collapse: collapse;
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 22px 0;
+  table-layout: fixed;
+  width: min(1120px, calc(100vw - 48px));
+}
+
+.prose > table,
+.prose > .feishu-grid {
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.prose th,
+.prose td {
+  border: 1px solid #d9dee5;
+  padding: 12px 14px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose th {
+  background: #f3f4f6;
+  color: #111827;
+  font-weight: 700;
+}
+
+.prose td p:first-child,
+.prose th p:first-child {
+  margin-top: 0;
+}
+
+.prose td p:last-child,
+.prose th p:last-child {
+  margin-bottom: 0;
+}
+
+.prose td img {
+  display: inline-block;
+  max-height: 260px;
+  max-width: min(220px, 100%);
+  object-fit: contain;
+  vertical-align: top;
+}
+
+.prose td img + img {
+  margin-left: 8px;
+}
+
+.feishu-grid {
+  align-items: stretch;
+  display: flex;
+  gap: 18px;
+  margin: 28px 0;
+  width: min(1120px, calc(100vw - 48px));
+}
+
+.feishu-column {
+  background: #f7f8fa;
+  border-radius: 8px;
+  min-width: 0;
+  padding: 18px;
+}
+
+.feishu-column img {
+  display: block;
+  margin: 14px auto 0;
+  width: 100%;
+}
+
+.feishu-card {
+  background: #fff;
+  border: 1px solid #d9dee5;
+  border-radius: 8px;
+  display: grid;
+  gap: 4px;
+  margin: 12px 0;
+  padding: 14px;
+}
+
+.feishu-card span {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.feishu-video,
+.prose video {
+  background: #111827;
+  border-radius: 8px;
+  display: block;
+  max-height: 520px;
+  max-width: 100%;
+  width: 100%;
 }
 
 .site-footer {
@@ -178,5 +283,22 @@ nav {
   .two-col,
   .category-grid {
     grid-template-columns: 1fr;
+  }
+
+  .prose table {
+    display: block;
+    overflow-x: auto;
+    table-layout: auto;
+    width: calc(100vw - 32px);
+  }
+
+  .prose > table,
+  .prose > .feishu-grid {
+    margin-left: 50%;
+  }
+
+  .feishu-grid {
+    flex-direction: column;
+    width: calc(100vw - 32px);
   }
 }
