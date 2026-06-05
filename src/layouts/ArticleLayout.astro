@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import { withBase } from "../lib/url";
 
 type Props = {
   title: string;
@@ -17,7 +18,7 @@ type Props = {
       <p>{Astro.props.description}</p>
       {Astro.props.tags?.length ? (
         <div class="tags">
-          {Astro.props.tags.map((tag) => <a href={`/tags/${encodeURIComponent(tag)}/`}>{tag}</a>)}
+          {Astro.props.tags.map((tag) => <a href={withBase(`/tags/${encodeURIComponent(tag)}/`)}>{tag}</a>)}
         </div>
       ) : null}
     </header>
