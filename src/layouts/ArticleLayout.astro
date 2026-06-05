@@ -38,8 +38,10 @@ const pageviewEndpoint = import.meta.env.PUBLIC_PAGEVIEW_ENDPOINT || "";
 
     <article class="article" data-pageview-endpoint={pageviewEndpoint}>
       <header class="article-header">
-        <p class="date">{Astro.props.date.toISOString().slice(0, 10)}</p>
         <h1>{Astro.props.title}</h1>
+        <div class="article-meta">
+          <time datetime={Astro.props.date.toISOString()}>{Astro.props.date.toISOString().slice(0, 10)}</time>
+        </div>
         <p>{Astro.props.description}</p>
         {Astro.props.tags?.length ? (
           <div class="tags">
