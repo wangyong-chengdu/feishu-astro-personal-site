@@ -1,0 +1,5 @@
+links:
+  - label: "GitHub"
+    href: "https://github.com/"
+  - label: "Email"
+    href: "mailto:hello@example.com"
