@@ -1,0 +1,13 @@
+categories:
+  - id: "technology"
+    name: "技术"
+    description: "AI Agent、浏览器插件和工程实践"
+  - id: "startup"
+    name: "创业"
+    description: "独立开发、产品验证、增长和出海"
+  - id: "life"
+    name: "生活"
+    description: "个人选择、关系、状态和长期主义"
+  - id: "learning"
+    name: "学习"
+    description: "概念拆解、读书和认知升级"
