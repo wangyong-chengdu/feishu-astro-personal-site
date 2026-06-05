@@ -1,16 +1,26 @@
 ---
 import { getCollection } from "astro:content";
-import ArticleLayout from "../../layouts/ArticleLayout.astro";
+import { withBase } from "../../lib/url";
 
 export async function getStaticPaths() {
   const posts = (await getCollection("blog")).filter((post) => !post.data.draft);
-  return posts.map((post) => ({ params: { slug: post.id.replace(/\.(md|mdx)$/, "") }, props: { post } }));
+  return posts.map((post) => ({ params: { slug: post.id.replace(/\.(md|mdx)$/, "") } }));
 }
 
-const { post } = Astro.props;
-const { Content, headings } = await post.render();
+const target = withBase(`/posts/${Astro.params.slug}/`);
 ---
 
-<ArticleLayout title={post.data.title} description={post.data.description} date={post.data.date} tags={post.data.tags} headings={headings}>
-  <Content />
-</ArticleLayout>
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={target} />
+    <script is:inline define:vars={{ target }}>location.replace(target);</script>
+    <title>Redirecting...</title>
+  </head>
+  <body>
+    <a href={target}>Redirecting...</a>
+  </body>
+</html>

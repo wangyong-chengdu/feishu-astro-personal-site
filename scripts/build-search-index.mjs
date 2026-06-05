@@ -15,6 +15,7 @@ function walk(dir) {
 
 const entries = walk(distDir)
   .filter((path) => path.endsWith(".html"))
+  .filter((path) => !relative(distDir, path).replace(/\\/g, "/").startsWith("blog/"))
   .map((path) => {
     const html = readFileSync(path, "utf8");
     const title = html.match(/<title>(.*?)<\/title>/)?.[1] || "";

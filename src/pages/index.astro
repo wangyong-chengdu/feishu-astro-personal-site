@@ -18,13 +18,13 @@ const secondaryPosts = posts.slice(1, 5);
       <h1>{homepage.hero.title}</h1>
       <p>{homepage.hero.subtitle}</p>
     </div>
-    <a class="hero-action" href={withBase("/blog/")}>全部文章</a>
+    <a class="hero-action" href={withBase("/posts/")}>全部文章</a>
   </section>
 
   <section class="home-layout">
     <div class="home-main">
       {featuredPost ? (
-        <a class="featured-card" href={withBase(`/blog/${getEntrySlug(featuredPost)}/`)}>
+        <a class="featured-card" href={withBase(`/posts/${getEntrySlug(featuredPost)}/`)}>
           <div class="featured-copy">
             <p class="eyebrow">最新文章</p>
             <h2>{featuredPost.data.title}</h2>
@@ -45,11 +45,11 @@ const secondaryPosts = posts.slice(1, 5);
       <section class="feed-section" aria-labelledby="recent-posts">
         <div class="section-title">
           <h2 id="recent-posts">推荐阅读</h2>
-          <a href={withBase("/blog/")}>更多</a>
+          <a href={withBase("/posts/")}>更多</a>
         </div>
         <div class="post-feed">
           {secondaryPosts.map((post) => (
-            <a class={`post-card ${post.data.cover ? "" : "post-card-text"}`} href={withBase(`/blog/${getEntrySlug(post)}/`)}>
+            <a class={`post-card ${post.data.cover ? "" : "post-card-text"}`} href={withBase(`/posts/${getEntrySlug(post)}/`)}>
               {post.data.cover ? (
                 <figure class="post-cover">
                   <img src={post.data.cover} alt="" loading="lazy" />
@@ -74,7 +74,7 @@ const secondaryPosts = posts.slice(1, 5);
         <h2>主题</h2>
         <div class="topic-list">
           {categories.map((category) => (
-            <a href={withBase(`/blog/?category=${category.id}`)}>
+            <a href={withBase(`/posts/?category=${category.id}`)}>
               <strong>{category.name}</strong>
               <span>{category.description}</span>
             </a>

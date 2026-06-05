@@ -27,6 +27,8 @@ Feishu document
   -> scripts/publish-feishu.mjs
   -> src/content/{blog|story|now}/{slug}.md
   -> public/images/{blog|story|now}/{slug}/
+
+Public article URLs use `/posts/{slug}/`; `blog` remains the internal content collection name.
   -> astro build
   -> GitHub Pages
 ```
