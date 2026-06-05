@@ -1,11 +1,5 @@
 items:
   - label: "首页"
     href: "/"
-  - label: "文章"
-    href: "/blog/"
-  - label: "故事"
-    href: "/story/"
-  - label: "现在"
-    href: "/now/"
-  - label: "关于我"
+  - label: "我"
     href: "/about/"
