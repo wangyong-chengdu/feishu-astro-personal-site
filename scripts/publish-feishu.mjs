@@ -15,6 +15,8 @@ const input = {
   draft: env.DRAFT === "true"
 };
 
+const siteBase = normalizeBase(env.SITE_BASE || "/");
+
 const output = await loadMarkdown();
 writeArticle(output.markdown, output.assetsDir);
 writeReport(output);
@@ -88,7 +90,7 @@ function writeArticle(markdown, assetsDir) {
 
   if (assetsDir && existsSync(assetsDir)) {
     copyAssets(assetsDir, imageDir);
-    body = body.replace(/\.\.\/assets\/[^/\s)]+\/([^) \n]+)/g, `/images/${collection}/${input.slug}/$1`);
+    body = body.replace(/\.\.\/assets\/[^/\s)]+\/([^) \n]+)/g, publicPath(`/images/${collection}/${input.slug}/$1`));
   }
 
   body = sanitizeMarkdown(body);
@@ -130,7 +132,7 @@ function sanitizeMarkdown(markdown) {
     .replace(/\s+href="https:\/\/[^"]*\/download\/authcode\/[^"]+"/g, "")
     .replace(/\s+data-[a-zA-Z0-9_-]+="[^"]*"/g, "")
     .replace(/\s+id="[^"]*"/g, "")
-    .replace(/<img\s+src="(?!\/images\/|https?:\/\/|\.\.?\/)[^"]+"[^>]*\/?>/g, "")
+    .replace(/<img\s+src="(?!\/|https?:\/\/|\.\.?\/)[^"]+"[^>]*\/?>/g, "")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
 }
@@ -161,4 +163,20 @@ function required(name, value) {
     throw new Error(`${name} is required`);
   }
   return value;
+}
+
+function publicPath(path) {
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  if (siteBase === "/") {
+    return normalizedPath;
+  }
+  return `${siteBase.replace(/\/$/, "")}${normalizedPath}`;
+}
+
+function normalizeBase(value) {
+  if (!value || value === ".") {
+    return "/";
+  }
+  const withLeadingSlash = value.startsWith("/") ? value : `/${value}`;
+  return withLeadingSlash.endsWith("/") ? withLeadingSlash : `${withLeadingSlash}/`;
 }
