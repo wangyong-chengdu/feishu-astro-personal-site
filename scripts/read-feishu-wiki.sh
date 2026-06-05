@@ -44,6 +44,25 @@ cp "$html_path" "$localized_html_path"
 
 mkdir -p "$assets_dir"
 
+media_preview() {
+  lark-cli docs +media-preview "$@" >/dev/null 2>&1 &
+  local pid="$!"
+  local waited=0
+  local timeout_seconds=25
+
+  while kill -0 "$pid" >/dev/null 2>&1; do
+    if (( waited >= timeout_seconds )); then
+      kill "$pid" >/dev/null 2>&1 || true
+      wait "$pid" >/dev/null 2>&1 || true
+      return 124
+    fi
+    sleep 1
+    waited=$((waited + 1))
+  done
+
+  wait "$pid"
+}
+
 perl -0ne '
   while (/<img\b([^>]*?)\/?>/g) {
     my $attrs = $1;
@@ -65,7 +84,7 @@ perl -0ne '
   fi
 
   output_path="$assets_dir/$media_name"
-  if lark-cli docs +media-preview --token "$media_token" --output "$output_path" --overwrite >/dev/null 2>&1; then
+  if media_preview --token "$media_token" --output "$output_path" --overwrite; then
     perl -0pi -e "s#src=\"\\Q$media_token\\E\"#src=\"$md_assets_prefix/$media_name\"#g" "$localized_html_path"
   else
     echo "Warning: failed to download image media $media_token" >&2
@@ -88,7 +107,7 @@ perl -0ne '
   }
 ' "$html_path" | while IFS=$'\t' read -r media_token media_name; do
   output_path="$assets_dir/$media_name"
-  if lark-cli docs +media-preview --token "$media_token" --output "$output_path" --overwrite >/dev/null 2>&1; then
+  if media_preview --token "$media_token" --output "$output_path" --overwrite; then
     perl -0pi -e "s#<figure[^>]*>\\s*<source[^>]*token=\"\\Q$media_token\\E\"[^>]*/>\\s*</figure>#<p><a href=\"$md_assets_prefix/$media_name\">$media_name</a></p>#g" "$localized_html_path"
   else
     echo "Warning: failed to download source media $media_token" >&2
