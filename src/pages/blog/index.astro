@@ -11,11 +11,22 @@ const posts = await getPublishedBlogPosts();
     <h1>文章</h1>
     <p>技术、创业、生活和学习记录。</p>
   </section>
-  <div class="list">
+  <div class="archive-feed">
     {posts.map((post) => (
-      <a class="list-item" href={withBase(`/blog/${getEntrySlug(post)}/`)}>
-        <span>{post.data.title}</span>
-        <small>{post.data.description}</small>
+      <a class={`post-card ${post.data.cover ? "" : "post-card-text"}`} href={withBase(`/blog/${getEntrySlug(post)}/`)}>
+        {post.data.cover ? (
+          <figure class="post-cover">
+            <img src={post.data.cover} alt="" loading="lazy" />
+          </figure>
+        ) : null}
+        <div>
+          <div class="card-meta">
+            <time datetime={post.data.date.toISOString()}>{post.data.date.toISOString().slice(0, 10)}</time>
+            {post.data.tags.slice(0, 2).map((tag) => <span>{tag}</span>)}
+          </div>
+          <h2>{post.data.title}</h2>
+          <p>{post.data.description}</p>
+        </div>
       </a>
     ))}
   </div>
