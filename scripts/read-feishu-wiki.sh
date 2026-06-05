@@ -63,6 +63,22 @@ media_preview() {
   wait "$pid"
 }
 
+unique_media_name() {
+  local media_name="$1"
+  local media_token="$2"
+  local base="${media_name%.*}"
+  local ext=""
+
+  if [[ "$media_name" == *.* ]]; then
+    ext=".${media_name##*.}"
+  else
+    base="$media_name"
+  fi
+
+  local suffix="${media_token:0:10}"
+  printf '%s-%s%s' "$base" "$suffix" "$ext"
+}
+
 perl -0ne '
   while (/<img\b([^>]*?)\/?>/g) {
     my $attrs = $1;
@@ -83,6 +99,7 @@ perl -0ne '
     esac
   fi
 
+  media_name="$(unique_media_name "$media_name" "$media_token")"
   output_path="$assets_dir/$media_name"
   if media_preview --token "$media_token" --output "$output_path" --overwrite; then
     perl -0pi -e "s#src=\"\\Q$media_token\\E\"#src=\"$md_assets_prefix/$media_name\"#g" "$localized_html_path"
