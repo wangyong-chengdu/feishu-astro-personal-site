@@ -3,12 +3,13 @@ const ALLOWED_ORIGINS = new Set([
   "https://wangyong.dev",
   "https://cdwangyong.dev",
   "https://cdwangyong.com",
+  "https://www.cdwangyong.com",
   "http://127.0.0.1:4328",
   "http://localhost:4328"
 ]);
 
 function corsHeaders(origin) {
-  const allowedOrigin = ALLOWED_ORIGINS.has(origin) ? origin : "https://wangyong-chengdu.github.io";
+  const allowedOrigin = ALLOWED_ORIGINS.has(origin) ? origin : "https://cdwangyong.com";
   return {
     "Access-Control-Allow-Origin": allowedOrigin,
     "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
