@@ -105,7 +105,6 @@ function writeArticle(markdown, assetsDir) {
     `description: ${JSON.stringify(input.description)}`,
     `date: ${JSON.stringify(new Date().toISOString().slice(0, 10))}`,
     `updated: ${JSON.stringify(new Date().toISOString().slice(0, 10))}`,
-    `slug: ${JSON.stringify(input.slug)}`,
     `content_type: ${JSON.stringify(collection)}`,
     `category: ${JSON.stringify(input.category)}`,
     "tags:",
