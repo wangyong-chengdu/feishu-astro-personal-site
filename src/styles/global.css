@@ -261,6 +261,18 @@ nav {
   width: 100%;
 }
 
+.comments {
+  border-top: 1px solid #e5e7eb;
+  margin-top: 48px;
+  max-width: 760px;
+  padding-top: 28px;
+}
+
+.comments h2 {
+  font-size: 24px;
+  margin: 0 0 16px;
+}
+
 .site-footer {
   border-top: 1px solid #e5e7eb;
   display: flex;
