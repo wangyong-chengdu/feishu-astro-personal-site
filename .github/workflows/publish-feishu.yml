@@ -43,6 +43,8 @@ jobs:
     env:
       SITE_URL: https://wangyong-chengdu.github.io/feishu-astro-personal-site
       SITE_BASE: /feishu-astro-personal-site/
+      PUBLIC_GA4_MEASUREMENT_ID: ${{ vars.PUBLIC_GA4_MEASUREMENT_ID }}
+      PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.PUBLIC_GOOGLE_SITE_VERIFICATION }}
     steps:
       - uses: actions/checkout@v4
 
