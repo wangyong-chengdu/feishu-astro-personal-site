@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getAllTags, getEntrySlug, getPublishedBlogPosts } from "../../lib/content";
+
+const posts = await getPublishedBlogPosts();
+const tags = getAllTags(posts);
+
+export async function getStaticPaths() {
+  const allPosts = await getPublishedBlogPosts();
+  return getAllTags(allPosts).map((tag) => ({ params: { tag }, props: { tag } }));
+}
+
+const tag = Astro.props.tag as string;
+const taggedPosts = posts.filter((post) => post.data.tags.includes(tag));
+---
+
+<BaseLayout title={`标签：${tag}`} description={`标签 ${tag} 下的文章。`}>
+  <section class="page-heading">
+    <h1>标签：{tag}</h1>
+    <p>{tags.length} 个主题标签。</p>
+  </section>
+  <div class="list">
+    {taggedPosts.map((post) => (
+      <a class="list-item" href={`/blog/${getEntrySlug(post)}/`}>{post.data.title}</a>
+    ))}
+  </div>
+</BaseLayout>
