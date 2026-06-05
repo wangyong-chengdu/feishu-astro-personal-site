@@ -6,6 +6,8 @@ import "../styles/global.css";
 const site = getSiteConfig();
 const nav = getNavigation();
 const social = getSocialConfig();
+const ga4MeasurementId = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID || "G-N9FDXR5QTF";
+const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 type Props = {
   title?: string;
@@ -26,7 +28,21 @@ const description = Astro.props.description || site.description;
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    {googleSiteVerification ? <meta name="google-site-verification" content={googleSiteVerification} /> : null}
     <link rel="alternate" type="application/rss+xml" title={`${site.title} RSS`} href={withBase("/rss.xml")} />
+    {ga4MeasurementId ? (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${ga4MeasurementId}`}></script>
+        <script define:vars={{ ga4MeasurementId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            window.dataLayer.push(arguments);
+          }
+          gtag("js", new Date());
+          gtag("config", ga4MeasurementId);
+        </script>
+      </>
+    ) : null}
   </head>
   <body>
     <header class="site-header">
