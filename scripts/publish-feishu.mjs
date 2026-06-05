@@ -84,6 +84,7 @@ function writeArticle(markdown, assetsDir) {
   const articlePath = join(articleDir, `${input.slug}.md`);
 
   mkdirSync(articleDir, { recursive: true });
+  rmSync(imageDir, { recursive: true, force: true });
   mkdirSync(imageDir, { recursive: true });
 
   let body = markdown.replace(/^# .+?\n+/, "").trim();
@@ -120,9 +121,7 @@ function writeArticle(markdown, assetsDir) {
 function copyAssets(sourceDir, targetDir) {
   mkdirSync(targetDir, { recursive: true });
   for (const entry of walkFiles(sourceDir)) {
-    const extension = extname(entry);
-    const name = basename(entry, extension).replace(/[^a-zA-Z0-9_-]+/g, "-");
-    copyFileSync(entry, join(targetDir, `${name}${extension}`));
+    copyFileSync(entry, join(targetDir, basename(entry)));
   }
 }
 
