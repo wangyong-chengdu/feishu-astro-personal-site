@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getEntrySlug, getPublishedNowPosts } from "../../lib/content";
+
+const posts = await getPublishedNowPosts();
+---
+
+<BaseLayout title="现在" description="我现在正在做什么。">
+  <section class="page-heading">
+    <h1>现在</h1>
+    <p>我现在正在做什么。</p>
+  </section>
+  <div class="list">
+    {posts.map((post) => (
+      <a class="list-item" href={`/now/${getEntrySlug(post)}/`}>{post.data.title}</a>
+    ))}
+  </div>
+</BaseLayout>
