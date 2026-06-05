@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getEntrySlug, getPublishedBlogPosts } from "../../lib/content";
+
+const posts = await getPublishedBlogPosts();
+---
+
+<BaseLayout title="文章" description="技术、创业、生活和学习记录。">
+  <section class="page-heading">
+    <h1>文章</h1>
+    <p>技术、创业、生活和学习记录。</p>
+  </section>
+  <div class="list">
+    {posts.map((post) => (
+      <a class="list-item" href={`/blog/${getEntrySlug(post)}/`}>
+        <span>{post.data.title}</span>
+        <small>{post.data.description}</small>
+      </a>
+    ))}
+  </div>
+</BaseLayout>
