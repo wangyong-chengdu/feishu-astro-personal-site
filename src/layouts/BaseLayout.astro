@@ -1,5 +1,6 @@
 ---
 import { getNavigation, getSiteConfig, getSocialConfig } from "../lib/config";
+import { withBase } from "../lib/url";
 import "../styles/global.css";
 
 const site = getSiteConfig();
@@ -25,13 +26,13 @@ const description = Astro.props.description || site.description;
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <link rel="alternate" type="application/rss+xml" title={`${site.title} RSS`} href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title={`${site.title} RSS`} href={withBase("/rss.xml")} />
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="/">{site.title}</a>
+      <a class="brand" href={withBase("/")}>{site.title}</a>
       <nav aria-label="Main navigation">
-        {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+        {nav.map((item) => <a href={withBase(item.href)}>{item.label}</a>)}
       </nav>
     </header>
     <main>
