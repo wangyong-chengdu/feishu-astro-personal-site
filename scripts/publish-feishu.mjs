@@ -98,6 +98,7 @@ function writeArticle(markdown, assetsDir) {
   }
 
   body = sanitizeMarkdown(body);
+  const cover = extractFirstImageSource(body);
 
   const frontmatter = [
     "---",
@@ -109,15 +110,20 @@ function writeArticle(markdown, assetsDir) {
     `category: ${JSON.stringify(input.category)}`,
     "tags:",
     ...input.tags.map((tag) => `  - ${JSON.stringify(tag)}`),
+    cover ? `cover: ${JSON.stringify(cover)}` : "",
     `source: "feishu"`,
     `feishu_url: ${JSON.stringify(input.feishuUrl)}`,
     `draft: ${input.draft ? "true" : "false"}`,
     "---",
     ""
-  ].join("\n");
+  ].filter((line) => line !== "").join("\n");
 
   writeFileSync(articlePath, `${frontmatter}${body}\n`);
   console.log(`Article written: ${articlePath}`);
+}
+
+function extractFirstImageSource(markdown) {
+  return markdown.match(/<img\s+[^>]*src="([^"]+)"/i)?.[1] || "";
 }
 
 function copyAssets(sourceDir, targetDir) {
