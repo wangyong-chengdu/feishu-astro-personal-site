@@ -1,0 +1,28 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+type Props = {
+  title: string;
+  description: string;
+  date: Date;
+  tags?: string[];
+};
+---
+
+<BaseLayout title={Astro.props.title} description={Astro.props.description}>
+  <article class="article">
+    <header class="article-header">
+      <p class="date">{Astro.props.date.toISOString().slice(0, 10)}</p>
+      <h1>{Astro.props.title}</h1>
+      <p>{Astro.props.description}</p>
+      {Astro.props.tags?.length ? (
+        <div class="tags">
+          {Astro.props.tags.map((tag) => <a href={`/tags/${encodeURIComponent(tag)}/`}>{tag}</a>)}
+        </div>
+      ) : null}
+    </header>
+    <div class="prose">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
