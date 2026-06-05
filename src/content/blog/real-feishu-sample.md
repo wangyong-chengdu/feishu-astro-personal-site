@@ -1,15 +1,15 @@
 ---
 title: "【2025龙井新茶】品味春天的甘鲜，送礼最佳选择，亲自采摘，手工炒制，浙江龙井新茶，等你来品~"
-description: "真实飞书文档发布链路验证样本。"
+description: "一篇关于自家浙江龙井新茶、茶园故事、价格对比与选购建议的真实分享。"
 date: "2026-06-05"
 updated: "2026-06-05"
-slug: "real-feishu-sample"
 content_type: "blog"
-category: "technology"
+category: "life"
 tags:
-  - "飞书"
-  - "个人网站"
-  - "真实验证"
+  - "龙井茶"
+  - "家乡"
+  - "生活方式"
+  - "新茶"
 source: "feishu"
 feishu_url: "https://andy.feishu.cn/docx/XwA1dnQBUoBlgfxbqrHcBc9Bnxb"
 draft: false
@@ -88,7 +88,7 @@ draft: false
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th><p>等级</p></th>
 <th><p>特点</p></th>
 <th><p>适用场景</p></th>
@@ -97,7 +97,7 @@ draft: false
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><p>明前头采</p>
 <p>（已上市）</p></td>
 <td><p>俗称头采茶，又名女儿红，采摘于今年早春的第一颗嫩芽，茶叶豆香浓郁、口感顺滑、入喉通畅、鲜爽回甘，属龙井茶中珍品中的珍品</p></td>
@@ -108,7 +108,7 @@ draft: false
 <td><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/Luban_17138865735052860380d-eaa8-4fd0-b972-eb2e1c4aaf1a-EP0ybLsVJo.jpeg" /><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/Luban_1713886573522ff811a43-9e28-4c1f-890e-bea6f5160cdd-KV7gb1Yhko.jpg" /></td>
 <td><p>1200</p></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p>明前龙井</p>
 <p>（接受预定）</p></td>
 <td><p>采摘于清明前，出自珍稀的老茶树（群体种）芽叶，色泽嫩绿，扁平光滑，外形虽不及新品种龙井43漂亮，但胜在内质，他的口感鲜浓味足，豆香中兼得清香、入口回甘明显，其遗传基因很难人工模仿，深受茶客们的偏爱，属龙井茶中的珍品</p></td>
@@ -120,7 +120,7 @@ draft: false
 <td><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/Luban_171388661343542ecfc28-9b53-41c3-8db5-d1b92ca71a17-HgdJbMIJ8o.jpeg" /><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/Luban_171388661345754081f1c-41f8-4203-b0cd-a09bd26fbbb7-GEbEbPsV7o.jpeg" /></td>
 <td><p>600 ~ 700</p></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><p>雨前龙井</p>
 <p>（接受预定）</p></td>
 <td><p>采摘于清明刚过，属于雨前的嫩芽，茶形挺秀笔直，色泽均匀，茶汤黄绿明亮，豆香味明显，口感厚实醇正、入喉通畅，回甘好，十成中带两分青味，浓醇中带有一点甘鲜，由于其口感层次极其丰富，深受老茶客们的偏爱，此款茶叶属龙井茶中的上品</p></td>
@@ -131,7 +131,7 @@ draft: false
 <td><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/Luban_17138866338000e357893-0fe8-4399-9be3-a7cc81d73aae-GS5Ab0yLQo.jpeg" /><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/Luban_1713886633820cb5466a5-ac6f-4e34-a5fc-088adbd5bd3e-EsgsbLVgDo.jpeg" /></td>
 <td><p>400</p></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p>雨后龙井</p>
 <p>（接受预定）</p></td>
 <td><p>口粮茶，虽叶片偏大，但毕竟还是大名鼎鼎的龙井茶，香气和回甘还是不错的。价格不贵，日常饮品还是不错的选择</p></td>
@@ -142,7 +142,7 @@ draft: false
 <td><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/干茶3-GsAtbeigVo.jpeg" /></td>
 <td><p>280</p></td>
 </tr>
-<tr class="odd">
+<tr>
 <td colspan="5"><p>以上是今年龙井的价格，篇幅有限，想了解更多茶叶点击<a href="https://andy.feishu.cn/docx/XwA1dnQBUoBlgfxbqrHcBc9Bnxb#doxcnfI7j32xdpLph3N7eJqn8Wf">下面的链接</a><strong>进群，点击「商品展示」详细</strong>了解。</p></td>
 </tr>
 </tbody>
@@ -160,7 +160,7 @@ draft: false
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th><p>典型商品</p></th>
 <th><p>包装</p></th>
 <th><p>售价</p></th>
@@ -170,7 +170,7 @@ draft: false
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-WvnAbvPAjo.png" /></td>
 <td><p>小罐茶、礼盒装</p></td>
 <td><p>130g, 1200</p></td>
@@ -178,7 +178,7 @@ draft: false
 <td><p>4615</p></td>
 <td><p>1200</p></td>
 </tr>
-<tr class="even">
+<tr>
 <td><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-W8CWbeapOo.png" /></td>
 <td><p>罐装</p></td>
 <td><p>100g, 916</p></td>
@@ -186,7 +186,7 @@ draft: false
 <td><p>4580</p></td>
 <td><p>1200</p></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-ZLedb0s9Ro.png" /></td>
 <td><p>盒装</p></td>
 <td><p>10g, 78</p></td>
@@ -194,7 +194,7 @@ draft: false
 <td><p>3900</p></td>
 <td><p>1200</p></td>
 </tr>
-<tr class="even">
+<tr>
 <td><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-DgTwbJxzxo.png" /></td>
 <td><p>瓷罐装</p></td>
 <td><p>100g, 568</p></td>
@@ -202,7 +202,7 @@ draft: false
 <td><p>2840</p></td>
 <td><p>600</p></td>
 </tr>
-<tr class="odd">
+<tr>
 <td colspan="6"><p>说明：</p>
 <ol>
 <li>我在天猫看到天福茗茶很多商品标题上写的2024，有误导嫌疑，其实是去年甚至更早的茶叶，有点恶心。</li>
@@ -224,7 +224,7 @@ draft: false
 
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td><p>罐装 + 礼袋</p>
 <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-LFOAbDGHQo.png" /></td>
 <td><p>牛皮纸包装</p>
@@ -237,38 +237,38 @@ draft: false
 
 礼盒款式很多，下面选取了几款包装，更多包装选择欢迎飞书或微信私聊。
 
-| 款式                 | 单价/套 | 图片                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|----------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 绿早春初采（二合一） | 32      | <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-Q68EbbiMvo.png" /><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-RyWtb4qC5o.png" /> |
-| 绿早春初采（二合一） | 42      | <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-Pn9gb71ORo.png" />                                                                                                                                                                                                                                                                                                                                                                                            |
-| 隐入山林(小2罐青色)  | 30      | <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-NP4jb2Xcno.png" />                                                                                                                                                                                                                                                                                                                                                                                            |
-| 隐入山林(大2罐青色)  | 35      | <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-TdTXbHOJko.png" />                                                                                                                                                                                                                                                                                                                                                                                            |
-| 不染图(单陶绿色)     | 68      | <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-PO96b1AAbo.png" />                                                                                                                                                                                                                                                                                                                                                                                            |
-| 不染图(双陶绿色)     | 98      | <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-HhdobDU4To.png" />                                                                                                                                                                                                                                                                                                                                                                                            |
+| 款式 | 单价/套 | 图片 |
+|----|----|----|
+| 绿早春初采（二合一） | 32 | <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-Q68EbbiMvo.png" /><img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-RyWtb4qC5o.png" /> |
+| 绿早春初采（二合一） | 42 |  |
+| 隐入山林(小2罐青色) | 30 | <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-NP4jb2Xcno.png" /> |
+| 隐入山林(大2罐青色) | 35 | <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-TdTXbHOJko.png" /> |
+| 不染图(单陶绿色) | 68 | <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-PO96b1AAbo.png" /> |
+| 不染图(双陶绿色) | 98 | <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-HhdobDU4To.png" /> |
 
 **茶叶展示**
 
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td><p>芽头</p>
 <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/芽头-GGUxbvByro.jpeg" /></td>
 <td><p>干茶</p>
 <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/头采-Mm9Lbn68Vo.jpeg" /></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p>运输</p>
 <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-CTdQbnepBo.png" /></td>
 <td><p>茶汤</p>
 <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/茶汤-XQD1bpEBao.webp" /></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><p>采摘</p>
 <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-AmwobApSto.png" /></td>
 <td><p>晾晒</p>
 <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-AQfqbIB5Ro.png" /></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p>在家拍摄的采茶视频</p>
 <video class="feishu-video" controls playsinline preload="metadata" src="/feishu-astro-personal-site/images/blog/real-feishu-sample/media-1.mp4"></video></td>
 <td><p>老妈采茶视频</p>
