@@ -1,9 +1,8 @@
 ---
 title: "我为什么开始写个人网站"
 description: "用飞书写作，用 Astro 和 GitHub Pages 发布。"
-date: "2026-06-04"
-updated: "2026-06-04"
-slug: "my-first-post"
+date: "2026-06-05"
+updated: "2026-06-05"
 content_type: "blog"
 category: "technology"
 tags:
