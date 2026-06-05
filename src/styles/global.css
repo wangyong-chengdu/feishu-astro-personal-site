@@ -126,9 +126,14 @@ nav {
   margin: 0 0 12px;
 }
 
-.date {
+.date,
+.article-meta {
   color: #64748b;
   font-size: 14px;
+}
+
+.article-meta {
+  margin: -4px 0 16px;
 }
 
 .tags {
