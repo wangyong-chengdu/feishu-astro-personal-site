@@ -50,6 +50,16 @@ jobs:
 
       - run: npm ci
 
+      - name: Install Feishu conversion dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq pandoc
+          npm install -g @larksuite/cli
+          printf '%s' "$FEISHU_APP_SECRET" | lark-cli config init --app-id "$FEISHU_APP_ID" --app-secret-stdin --brand feishu
+        env:
+          FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
+          FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
+
       - name: Publish Feishu document
         run: node scripts/publish-feishu.mjs
         env:
