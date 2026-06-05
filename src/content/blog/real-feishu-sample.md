@@ -1,5 +1,5 @@
 ---
-title: "真实飞书样本文档"
+title: "【2025龙井新茶】品味春天的甘鲜，送礼最佳选择，亲自采摘，手工炒制，浙江龙井新茶，等你来品~"
 description: "真实飞书文档发布链路验证样本。"
 date: "2026-06-05"
 updated: "2026-06-05"
@@ -14,8 +14,6 @@ source: "feishu"
 feishu_url: "https://andy.feishu.cn/docx/XwA1dnQBUoBlgfxbqrHcBc9Bnxb"
 draft: false
 ---
-【2025龙井新茶】品味春天的甘鲜，送礼最佳选择，亲自采摘，手工炒制，浙江龙井新茶，等你来品~
-
 # 同学，辛苦了，喝杯茶！
 
 2025如期而至，很高兴你能进来，工作辛苦了，请进请进。
