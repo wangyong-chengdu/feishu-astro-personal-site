@@ -10,58 +10,102 @@ const categories = getCategories();
 const posts = await getPublishedBlogPosts();
 const stories = await getPublishedStories();
 const nowPosts = await getPublishedNowPosts();
+const featuredPost = posts[0];
+const secondaryPosts = posts.slice(1, 5);
 ---
 
 <BaseLayout>
-  <section class="hero">
-    <h1>{homepage.hero.title}</h1>
-    <p>{homepage.hero.subtitle}</p>
-  </section>
-
-  <section class="section">
-    <h2>最新文章</h2>
-    <div class="list">
-      {posts.slice(0, 5).map((post) => (
-        <a class="list-item" href={withBase(`/blog/${getEntrySlug(post)}/`)}>
-          <span>{post.data.title}</span>
-          <small>{post.data.date.toISOString().slice(0, 10)}</small>
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <section class="section two-col">
+  <section class="home-hero">
     <div>
-      <h2>故事</h2>
-      <div class="list">
-        {stories.slice(0, 3).map((post) => (
-          <a class="list-item" href={withBase(`/story/${getEntrySlug(post)}/`)}>{post.data.title}</a>
-        ))}
-      </div>
+      <p class="eyebrow">Personal Notes</p>
+      <h1>{homepage.hero.title}</h1>
+      <p>{homepage.hero.subtitle}</p>
     </div>
-    <div>
-      <h2>现在</h2>
-      <div class="list">
-        {nowPosts.slice(0, 1).map((post) => (
-          <a class="list-item" href={withBase(`/now/${getEntrySlug(post)}/`)}>{post.data.title}</a>
-        ))}
-      </div>
-    </div>
+    <a class="hero-action" href={withBase("/blog/")}>全部文章</a>
   </section>
 
-  <section class="section">
-    <h2>主题</h2>
-    <div class="category-grid">
-      {categories.map((category) => (
-        <a class="category" href={withBase(`/blog/?category=${category.id}`)}>
-          <strong>{category.name}</strong>
-          <span>{category.description}</span>
+  <section class="home-layout">
+    <div class="home-main">
+      {featuredPost ? (
+        <a class="featured-card" href={withBase(`/blog/${getEntrySlug(featuredPost)}/`)}>
+          <div class="featured-copy">
+            <p class="eyebrow">最新文章</p>
+            <h2>{featuredPost.data.title}</h2>
+            <p>{featuredPost.data.description}</p>
+            <div class="card-meta">
+              <time datetime={featuredPost.data.date.toISOString()}>{featuredPost.data.date.toISOString().slice(0, 10)}</time>
+              {featuredPost.data.tags.slice(0, 2).map((tag) => <span>{tag}</span>)}
+            </div>
+          </div>
+          {featuredPost.data.cover ? (
+            <figure class="featured-cover">
+              <img src={featuredPost.data.cover} alt="" loading="eager" />
+            </figure>
+          ) : null}
         </a>
-      ))}
+      ) : null}
+
+      <section class="feed-section" aria-labelledby="recent-posts">
+        <div class="section-title">
+          <h2 id="recent-posts">推荐阅读</h2>
+          <a href={withBase("/blog/")}>更多</a>
+        </div>
+        <div class="post-feed">
+          {secondaryPosts.map((post) => (
+            <a class={`post-card ${post.data.cover ? "" : "post-card-text"}`} href={withBase(`/blog/${getEntrySlug(post)}/`)}>
+              {post.data.cover ? (
+                <figure class="post-cover">
+                  <img src={post.data.cover} alt="" loading="lazy" />
+                </figure>
+              ) : null}
+              <div>
+                <div class="card-meta">
+                  <time datetime={post.data.date.toISOString()}>{post.data.date.toISOString().slice(0, 10)}</time>
+                  {post.data.tags.slice(0, 1).map((tag) => <span>{tag}</span>)}
+                </div>
+                <h3>{post.data.title}</h3>
+                <p>{post.data.description}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
     </div>
+
+    <aside class="home-sidebar" aria-label="侧栏">
+      <section class="side-block">
+        <h2>主题</h2>
+        <div class="topic-list">
+          {categories.map((category) => (
+            <a href={withBase(`/blog/?category=${category.id}`)}>
+              <strong>{category.name}</strong>
+              <span>{category.description}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section class="side-block">
+        <h2>故事</h2>
+        <div class="compact-list">
+          {stories.slice(0, 3).map((post) => (
+            <a href={withBase(`/story/${getEntrySlug(post)}/`)}>{post.data.title}</a>
+          ))}
+        </div>
+      </section>
+
+      <section class="side-block">
+        <h2>现在</h2>
+        <div class="compact-list">
+          {nowPosts.slice(0, 2).map((post) => (
+            <a href={withBase(`/now/${getEntrySlug(post)}/`)}>{post.data.title}</a>
+          ))}
+        </div>
+      </section>
+    </aside>
   </section>
 
-  <section class="section about">
+  <section class="section about-strip">
     <h2>关于</h2>
     <p>{site.author.bio}</p>
   </section>
