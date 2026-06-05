@@ -272,9 +272,9 @@ draft: false
 </tr>
 <tr class="even">
 <td><p>在家拍摄的采茶视频</p>
-<p><a href="/feishu-astro-personal-site/images/blog/real-feishu-sample/media-1.mp4">media-1.mp4</a></p></td>
+<video class="feishu-video" controls playsinline preload="metadata" src="/feishu-astro-personal-site/images/blog/real-feishu-sample/media-1.mp4"></video></td>
 <td><p>老妈采茶视频</p>
-<p><a href="/feishu-astro-personal-site/images/blog/real-feishu-sample/media-2.mp4">media-2.mp4</a></p></td>
+<video class="feishu-video" controls playsinline preload="metadata" src="/feishu-astro-personal-site/images/blog/real-feishu-sample/media-2.mp4"></video></td>
 </tr>
 </tbody>
 </table>
@@ -285,12 +285,26 @@ draft: false
 
 欢迎同学通过飞书内部交流群、小红书（Bit & Leaf）、微信找到我，16点前当天发货，16点后第二天发货。
 
+<div class="feishu-grid">
+
+<div class="feishu-column" style="flex: 0.346341 1 0;">
+
 - 内部交流群：
+
+<div class="feishu-card">
+
+**茶友群（产地：浙江-新昌）**飞书群卡片
+
+</div>
 
 说明：
 
 1.  有**购茶需求**、**想尝鲜**，**想避坑**的请进，我带你入门，少走弯路。
 2.  想获取茶叶知识的请进。**不买茶也欢迎交流**，**摆摆龙门阵，不一定非要买茶，可以不买**，我就在这等着大家~
+
+</div>
+
+<div class="feishu-column" style="flex: 0.320325 1 0;">
 
 - 小红书
 
@@ -298,11 +312,19 @@ draft: false
 
 <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/小红书二维码-CTsFbt0jBo.jpg" />
 
+</div>
+
+<div class="feishu-column" style="flex: 0.333333 1 0;">
+
 - 微信
 
 这是我爱人的微信，我爱人是高级评茶员，比小王专业，同学们有购茶需求，比如不清楚应该怎么选可以找微信找霜霜，备注「**字节同学买茶**」
 
 <img src="/feishu-astro-personal-site/images/blog/real-feishu-sample/image-RUOmbaLqfo.png" />
+
+</div>
+
+</div>
 
 注：我家主要是**龙井、安吉白茶，但不限于这两款。**我们多年喝茶也认识了天南地北的茶友，有福建的朋友，云南的朋友，茶叶都是经过我们严格把关的，请放心购买，有其他茶叶需求的同学也可以找我们。后面我也会抽时间写一篇关于**红茶、岩茶、普洱茶、川茶、徽茶**相关的文章介绍，欢迎交流。
 
