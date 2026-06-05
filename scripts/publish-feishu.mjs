@@ -45,13 +45,22 @@ async function loadMarkdown() {
   rmSync(cacheDir, { recursive: true, force: true });
   mkdirSync(cacheDir, { recursive: true });
 
-  const result = spawnSync(tool, [input.feishuUrl, cacheDir], {
+  const result = spawnSync("bash", [tool, input.feishuUrl, cacheDir], {
     stdio: ["ignore", "pipe", "pipe"],
     encoding: "utf8"
   });
 
   if (result.status !== 0) {
-    throw new Error(`Feishu conversion failed:\n${result.stderr || result.stdout}`);
+    throw new Error(
+      [
+        `Feishu conversion failed with status ${String(result.status)}.`,
+        result.error ? `error: ${result.error.message}` : "",
+        result.stderr ? `stderr:\n${result.stderr}` : "",
+        result.stdout ? `stdout:\n${result.stdout}` : ""
+      ]
+        .filter(Boolean)
+        .join("\n")
+    );
   }
 
   const mdPath = result.stdout.trim().split("\n").at(-1);
@@ -142,7 +151,7 @@ function writeReport(output) {
 function findFeishuTool() {
   const local = join("scripts", "read-feishu-wiki.sh");
   if (existsSync(local)) {
-    return `./${local}`;
+    return local;
   }
   return null;
 }
