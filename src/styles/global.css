@@ -24,7 +24,7 @@ a {
 .site-footer,
 main {
   margin: 0 auto;
-  max-width: 920px;
+  max-width: 1180px;
   padding: 24px;
 }
 
@@ -146,17 +146,97 @@ nav {
   padding: 4px 10px;
 }
 
-.article,
-.prose {
-  max-width: 760px;
+.article-shell {
+  align-items: start;
+  display: grid;
+  gap: 36px;
+  grid-template-columns: 88px minmax(0, 760px) 220px;
+  justify-content: center;
 }
 
 .article {
-  max-width: 100%;
+  min-width: 0;
+  width: 100%;
 }
 
-.article-header {
-  max-width: 760px;
+.article-actions,
+.article-toc {
+  position: sticky;
+  top: 24px;
+}
+
+.article-actions {
+  display: grid;
+  gap: 14px;
+  justify-items: center;
+  padding-top: 160px;
+}
+
+.action-item {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  color: #6b7280;
+  cursor: pointer;
+  display: grid;
+  font: inherit;
+  gap: 4px;
+  min-height: 52px;
+  min-width: 56px;
+  padding: 8px;
+  place-items: center;
+  text-align: center;
+}
+
+.action-item:hover,
+.article-toc a:hover {
+  color: #111827;
+}
+
+.action-item span {
+  font-size: 12px;
+}
+
+.action-item strong {
+  color: #374151;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.action-button[data-copied="true"]::after {
+  color: #2563eb;
+  content: "已复制";
+  font-size: 12px;
+}
+
+.article-toc {
+  border-left: 1px solid #e5e7eb;
+  padding-left: 18px;
+  padding-top: 160px;
+}
+
+.article-toc nav {
+  display: grid;
+  gap: 12px;
+}
+
+.article-toc a {
+  color: #6b7280;
+  display: block;
+  font-size: 14px;
+  line-height: 1.45;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.article-toc .toc-depth-2 {
+  padding-left: 12px;
+}
+
+.article-toc .toc-depth-3 {
+  font-size: 13px;
+  padding-left: 24px;
 }
 
 .prose img {
@@ -169,14 +249,14 @@ nav {
   font-size: 15px;
   line-height: 1.55;
   margin: 22px 0;
-  table-layout: fixed;
-  width: min(1120px, calc(100vw - 48px));
+  table-layout: auto;
+  width: 100%;
 }
 
-.prose > table,
-.prose > .feishu-grid {
-  margin-left: 50%;
-  transform: translateX(-50%);
+.prose > table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .prose th,
@@ -220,7 +300,8 @@ nav {
   display: flex;
   gap: 18px;
   margin: 28px 0;
-  width: min(1120px, calc(100vw - 48px));
+  max-width: 100%;
+  width: 100%;
 }
 
 .feishu-column {
@@ -264,13 +345,18 @@ nav {
 .comments {
   border-top: 1px solid #e5e7eb;
   margin-top: 48px;
-  max-width: 760px;
   padding-top: 28px;
 }
 
 .comments h2 {
   font-size: 24px;
   margin: 0 0 16px;
+}
+
+.comments-note {
+  color: #64748b;
+  font-size: 14px;
+  margin: 0 0 18px;
 }
 
 .site-footer {
@@ -283,6 +369,53 @@ nav {
 .site-footer div {
   display: flex;
   gap: 12px;
+}
+
+@media (max-width: 1120px) {
+  .article-shell {
+    grid-template-columns: minmax(0, 760px) 200px;
+  }
+
+  .article-actions {
+    align-items: center;
+    display: flex;
+    grid-column: 1 / -1;
+    justify-content: center;
+    order: 3;
+    padding-top: 0;
+    position: static;
+  }
+}
+
+@media (max-width: 860px) {
+  .article-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .article-toc {
+    border-left: 0;
+    border-top: 1px solid #e5e7eb;
+    order: -1;
+    padding: 18px 0 0;
+    position: static;
+  }
+
+  .article-toc nav {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .article-toc a {
+    flex: 0 0 auto;
+    max-width: 220px;
+  }
+
+  .article-toc .toc-depth-2,
+  .article-toc .toc-depth-3 {
+    padding-left: 0;
+  }
 }
 
 @media (max-width: 720px) {
@@ -298,19 +431,11 @@ nav {
   }
 
   .prose table {
-    display: block;
-    overflow-x: auto;
     table-layout: auto;
-    width: calc(100vw - 32px);
-  }
-
-  .prose > table,
-  .prose > .feishu-grid {
-    margin-left: 50%;
+    width: 100%;
   }
 
   .feishu-grid {
     flex-direction: column;
-    width: calc(100vw - 32px);
   }
 }
