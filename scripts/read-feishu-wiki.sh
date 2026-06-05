@@ -125,12 +125,39 @@ perl -0ne '
 ' "$html_path" | while IFS=$'\t' read -r media_token media_name; do
   output_path="$assets_dir/$media_name"
   if media_preview --token "$media_token" --output "$output_path" --overwrite; then
-    perl -0pi -e "s#<figure[^>]*>\\s*<source[^>]*token=\"\\Q$media_token\\E\"[^>]*/>\\s*</figure>#<p><a href=\"$md_assets_prefix/$media_name\">$media_name</a></p>#g" "$localized_html_path"
+    perl -0pi -e "s#<source\\b[^>]*token=\"\\Q$media_token\\E\"[^>]*/>#<video class=\"feishu-video\" controls playsinline preload=\"metadata\" src=\"$md_assets_prefix/$media_name\"></video>#g" "$localized_html_path"
   else
     echo "Warning: failed to download source media $media_token" >&2
   fi
 done
 
+perl -0pi -e '
+  s#<figure\b[^>]*>\s*(<video\b.*?</video>)\s*</figure>#$1#gs;
+  s#<grid\b[^>]*>#<div class="feishu-grid">#g;
+  s#</grid>#</div>#g;
+  s#<column\b([^>]*)>#my $attrs = $1; my ($ratio) = $attrs =~ /width-ratio="([^"]+)"/; $ratio ||= "1"; "<div class=\"feishu-column\" style=\"flex: $ratio 1 0;\">" #ge;
+  s#</column>#</div>#g;
+  s#<chat_card\b([^>]*)>\s*</chat_card>#my $attrs = $1; my ($name) = $attrs =~ /name="([^"]+)"/; $name ||= "飞书群"; "<div class=\"feishu-card\"><strong>$name</strong><span>飞书群卡片</span></div>" #ge;
+' "$localized_html_path"
+
 pandoc -f html -t gfm --wrap=none "$localized_html_path" -o "$md_path"
+
+LOCALIZED_HTML_PATH="$localized_html_path" MD_PATH="$md_path" node <<'NODE'
+const { readFileSync, writeFileSync } = require("node:fs");
+
+const html = readFileSync(process.env.LOCALIZED_HTML_PATH, "utf8");
+let markdown = readFileSync(process.env.MD_PATH, "utf8");
+const videos = [...html.matchAll(/<p>([^<]*)<\/p>\s*(<video\b[^>]*><\/video>)/g)];
+
+for (const [, caption, video] of videos) {
+  const tableCell = `<td><p>${caption}</p></td>`;
+  const replacement = `<td><p>${caption}</p>\n${video}</td>`;
+  if (markdown.includes(tableCell)) {
+    markdown = markdown.replace(tableCell, replacement);
+  }
+}
+
+writeFileSync(process.env.MD_PATH, markdown);
+NODE
 
 printf '%s\n' "$md_path"
