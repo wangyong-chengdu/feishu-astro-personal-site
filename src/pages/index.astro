@@ -1,15 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getCategories, getHomepageConfig, getSiteConfig } from "../lib/config";
-import { getEntrySlug, getPublishedBlogPosts, getPublishedNowPosts, getPublishedStories } from "../lib/content";
+import { getCategories, getHomepageConfig } from "../lib/config";
+import { getEntrySlug, getPublishedBlogPosts } from "../lib/content";
 import { withBase } from "../lib/url";
 
-const site = getSiteConfig();
 const homepage = getHomepageConfig();
 const categories = getCategories();
 const posts = await getPublishedBlogPosts();
-const stories = await getPublishedStories();
-const nowPosts = await getPublishedNowPosts();
 const featuredPost = posts[0];
 const secondaryPosts = posts.slice(1, 5);
 ---
@@ -84,29 +81,6 @@ const secondaryPosts = posts.slice(1, 5);
           ))}
         </div>
       </section>
-
-      <section class="side-block">
-        <h2>故事</h2>
-        <div class="compact-list">
-          {stories.slice(0, 3).map((post) => (
-            <a href={withBase(`/story/${getEntrySlug(post)}/`)}>{post.data.title}</a>
-          ))}
-        </div>
-      </section>
-
-      <section class="side-block">
-        <h2>现在</h2>
-        <div class="compact-list">
-          {nowPosts.slice(0, 2).map((post) => (
-            <a href={withBase(`/now/${getEntrySlug(post)}/`)}>{post.data.title}</a>
-          ))}
-        </div>
-      </section>
     </aside>
-  </section>
-
-  <section class="section about-strip">
-    <h2>关于</h2>
-    <p>{site.author.bio}</p>
   </section>
 </BaseLayout>
