@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getAllTags, getEntrySlug, getPublishedBlogPosts } from "../../lib/content";
+import { withBase } from "../../lib/url";
 
 const posts = await getPublishedBlogPosts();
 const tags = getAllTags(posts);
@@ -21,7 +22,7 @@ const taggedPosts = posts.filter((post) => post.data.tags.includes(tag));
   </section>
   <div class="list">
     {taggedPosts.map((post) => (
-      <a class="list-item" href={`/blog/${getEntrySlug(post)}/`}>{post.data.title}</a>
+      <a class="list-item" href={withBase(`/blog/${getEntrySlug(post)}/`)}>{post.data.title}</a>
     ))}
   </div>
 </BaseLayout>
