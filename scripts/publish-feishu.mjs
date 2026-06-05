@@ -142,7 +142,7 @@ function writeReport(output) {
 function findFeishuTool() {
   const local = join("scripts", "read-feishu-wiki.sh");
   if (existsSync(local)) {
-    return local;
+    return `./${local}`;
   }
   return null;
 }
