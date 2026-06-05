@@ -55,7 +55,6 @@ const description = Astro.props.description || site.description;
       <slot />
     </main>
     <footer class="site-footer">
-      <p>{site.author.bio}</p>
       <div>
         {social.links.map((item) => <a href={item.href}>{item.label}</a>)}
       </div>
