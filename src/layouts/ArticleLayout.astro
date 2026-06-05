@@ -2,48 +2,134 @@
 import BaseLayout from "./BaseLayout.astro";
 import { withBase } from "../lib/url";
 
+type Heading = {
+  depth: number;
+  slug: string;
+  text: string;
+};
+
 type Props = {
   title: string;
   description: string;
   date: Date;
   tags?: string[];
+  headings?: Heading[];
 };
+
+const headings = (Astro.props.headings || []).filter((heading) => heading.depth >= 1 && heading.depth <= 3);
+const pageviewEndpoint = import.meta.env.PUBLIC_PAGEVIEW_ENDPOINT || "";
 ---
 
 <BaseLayout title={Astro.props.title} description={Astro.props.description}>
-  <article class="article">
-    <header class="article-header">
-      <p class="date">{Astro.props.date.toISOString().slice(0, 10)}</p>
-      <h1>{Astro.props.title}</h1>
-      <p>{Astro.props.description}</p>
-      {Astro.props.tags?.length ? (
-        <div class="tags">
-          {Astro.props.tags.map((tag) => <a href={withBase(`/tags/${encodeURIComponent(tag)}/`)}>{tag}</a>)}
-        </div>
-      ) : null}
-    </header>
-    <div class="prose">
-      <slot />
-    </div>
-    <section class="comments" aria-label="评论">
-      <h2>评论</h2>
-      <script
-        src="https://giscus.app/client.js"
-        data-repo="wangyong-chengdu/feishu-astro-personal-site"
-        data-repo-id="R_kgDOSxz0SA"
-        data-category="General"
-        data-category-id="DIC_kwDOSxz0SM4C-k4G"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        data-loading="lazy"
-        crossorigin="anonymous"
-        async
-      ></script>
-    </section>
-  </article>
+  <div class="article-shell">
+    <aside class="article-actions" aria-label="文章操作">
+      <a class="action-item" href="#comments" aria-label="跳转到评论">
+        <span>评论</span>
+        <strong data-comment-count>--</strong>
+      </a>
+      <div class="action-item" aria-label="阅读数">
+        <span>阅读</span>
+        <strong data-pageviews>统计中</strong>
+      </div>
+      <button class="action-item action-button" type="button" data-share-button aria-label="分享文章">
+        <span>分享</span>
+      </button>
+    </aside>
+
+    <article class="article" data-pageview-endpoint={pageviewEndpoint}>
+      <header class="article-header">
+        <p class="date">{Astro.props.date.toISOString().slice(0, 10)}</p>
+        <h1>{Astro.props.title}</h1>
+        <p>{Astro.props.description}</p>
+        {Astro.props.tags?.length ? (
+          <div class="tags">
+            {Astro.props.tags.map((tag) => <a href={withBase(`/tags/${encodeURIComponent(tag)}/`)}>{tag}</a>)}
+          </div>
+        ) : null}
+      </header>
+      <div class="prose">
+        <slot />
+      </div>
+      <section id="comments" class="comments" aria-label="评论">
+        <h2>评论</h2>
+        <p class="comments-note">评论区依赖 GitHub giscus App。若看到未安装提示，需要先把 giscus App 安装到当前仓库。</p>
+        <script
+          src="https://giscus.app/client.js"
+          data-repo="wangyong-chengdu/feishu-astro-personal-site"
+          data-repo-id="R_kgDOSxz0SA"
+          data-category="General"
+          data-category-id="DIC_kwDOSxz0SM4C-k4G"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="1"
+          data-input-position="bottom"
+          data-theme="preferred_color_scheme"
+          data-lang="zh-CN"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async
+        ></script>
+      </section>
+    </article>
+
+    {headings.length ? (
+      <aside class="article-toc" aria-label="章节目录">
+        <nav>
+          {headings.map((heading) => (
+            <a class={`toc-depth-${heading.depth}`} href={`#${heading.slug}`}>{heading.text}</a>
+          ))}
+        </nav>
+      </aside>
+    ) : null}
+  </div>
+
+  <script>
+    const article = document.querySelector("[data-pageview-endpoint]");
+    const viewsEl = document.querySelector("[data-pageviews]");
+    const shareButton = document.querySelector("[data-share-button]");
+    const commentCountEl = document.querySelector("[data-comment-count]");
+
+    async function updatePageviews() {
+      if (!(article instanceof HTMLElement) || !(viewsEl instanceof HTMLElement)) return;
+      const endpoint = article.dataset.pageviewEndpoint;
+      if (!endpoint) {
+        viewsEl.textContent = "--";
+        return;
+      }
+      const url = new URL(endpoint);
+      url.searchParams.set("path", window.location.pathname);
+      const storageKey = `pageview:${window.location.pathname}`;
+      const lastViewed = Number(window.localStorage.getItem(storageKey) || 0);
+      const shouldCount = Date.now() - lastViewed > 6 * 60 * 60 * 1000;
+      const response = await fetch(url.toString(), { method: shouldCount ? "POST" : "GET" });
+      if (!response.ok) throw new Error("Pageview request failed");
+      const data = await response.json();
+      if (shouldCount) window.localStorage.setItem(storageKey, String(Date.now()));
+      viewsEl.textContent = typeof data.views === "number" ? String(data.views) : "--";
+    }
+
+    shareButton?.addEventListener("click", async () => {
+      const shareData = { title: document.title, url: window.location.href };
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else {
+        await navigator.clipboard.writeText(window.location.href);
+        shareButton.setAttribute("data-copied", "true");
+        window.setTimeout(() => shareButton.removeAttribute("data-copied"), 1800);
+      }
+    });
+
+    window.addEventListener("message", (event) => {
+      if (event.origin !== "https://giscus.app" || !(commentCountEl instanceof HTMLElement)) return;
+      const discussion = event.data?.giscus?.discussion;
+      if (discussion?.totalCommentCount !== undefined) {
+        commentCountEl.textContent = String(discussion.totalCommentCount);
+      }
+    });
+
+    updatePageviews().catch(() => {
+      if (viewsEl instanceof HTMLElement) viewsEl.textContent = "--";
+    });
+  </script>
 </BaseLayout>
