@@ -45,6 +45,7 @@ jobs:
       SITE_BASE: /feishu-astro-personal-site/
       PUBLIC_GA4_MEASUREMENT_ID: ${{ vars.PUBLIC_GA4_MEASUREMENT_ID }}
       PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.PUBLIC_GOOGLE_SITE_VERIFICATION }}
+      PUBLIC_PAGEVIEW_ENDPOINT: ${{ vars.PUBLIC_PAGEVIEW_ENDPOINT }}
     steps:
       - uses: actions/checkout@v4
 
