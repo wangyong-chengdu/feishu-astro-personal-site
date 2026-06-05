@@ -41,8 +41,8 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     env:
-      SITE_URL: https://wangyong-chengdu.github.io/feishu-astro-personal-site
-      SITE_BASE: /feishu-astro-personal-site/
+      SITE_URL: https://cdwangyong.com
+      SITE_BASE: /
       PUBLIC_GA4_MEASUREMENT_ID: ${{ vars.PUBLIC_GA4_MEASUREMENT_ID }}
       PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.PUBLIC_GOOGLE_SITE_VERIFICATION }}
       PUBLIC_PAGEVIEW_ENDPOINT: ${{ vars.PUBLIC_PAGEVIEW_ENDPOINT }}
