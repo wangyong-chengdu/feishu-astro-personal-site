@@ -1,0 +1,67 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCategories, getHomepageConfig, getSiteConfig } from "../lib/config";
+import { getEntrySlug, getPublishedBlogPosts, getPublishedNowPosts, getPublishedStories } from "../lib/content";
+
+const site = getSiteConfig();
+const homepage = getHomepageConfig();
+const categories = getCategories();
+const posts = await getPublishedBlogPosts();
+const stories = await getPublishedStories();
+const nowPosts = await getPublishedNowPosts();
+---
+
+<BaseLayout>
+  <section class="hero">
+    <h1>{homepage.hero.title}</h1>
+    <p>{homepage.hero.subtitle}</p>
+  </section>
+
+  <section class="section">
+    <h2>最新文章</h2>
+    <div class="list">
+      {posts.slice(0, 5).map((post) => (
+        <a class="list-item" href={`/blog/${getEntrySlug(post)}/`}>
+          <span>{post.data.title}</span>
+          <small>{post.data.date.toISOString().slice(0, 10)}</small>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section two-col">
+    <div>
+      <h2>故事</h2>
+      <div class="list">
+        {stories.slice(0, 3).map((post) => (
+          <a class="list-item" href={`/story/${getEntrySlug(post)}/`}>{post.data.title}</a>
+        ))}
+      </div>
+    </div>
+    <div>
+      <h2>现在</h2>
+      <div class="list">
+        {nowPosts.slice(0, 1).map((post) => (
+          <a class="list-item" href={`/now/${getEntrySlug(post)}/`}>{post.data.title}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>主题</h2>
+    <div class="category-grid">
+      {categories.map((category) => (
+        <a class="category" href={`/blog/?category=${category.id}`}>
+          <strong>{category.name}</strong>
+          <span>{category.description}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section about">
+    <h2>关于</h2>
+    <p>{site.author.bio}</p>
+  </section>
+</BaseLayout>
